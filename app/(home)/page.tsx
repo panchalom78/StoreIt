@@ -1,18 +1,17 @@
 import FileInfoCard from "@/components/FileInfoCard";
 import HomeFileCard from "@/components/HomeFileCard";
 import StorageCircle from "@/components/StotageView";
-import { homeFileOptions } from "@/constants";
 import { getFiles, getStorageDetails } from "@/lib/actions/file.action";
 import { getFileDetails, getStorageNumber } from "@/lib/utils";
-import { FileDocument } from "@/types";
-import { any } from "zod/v4-mini";
+import { FileDocument, FileInfo } from "@/types";
 
 export default async function Home() {
     const fetchRecentFiles = await getFiles({ typeArray: [], limit: 10 });
-    const storageDetails: any = await getStorageDetails();
+    const storageDetails: { [key: string]: FileInfo } =
+        await getStorageDetails();
     console.log(storageDetails);
     const { usedPercent, remaining } = getStorageNumber(
-        storageDetails["total"].size
+        storageDetails["total"].size!
     );
     const fileOptions = getFileDetails(storageDetails);
 

@@ -52,7 +52,7 @@ const FileUploader = ({
         },
         [ownerId, accountId, path]
     );
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    const { getRootProps, getInputProps } = useDropzone({
         onDrop,
     });
 

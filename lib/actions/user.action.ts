@@ -7,7 +7,6 @@ import { parseStringify } from "../utils";
 import { cookies } from "next/headers";
 import { createAdminClient } from "../appwrite/server";
 import { redirect } from "next/navigation";
-import { error } from "console";
 
 const handleError = (error: unknown, message: string) => {
     console.log(error, message);

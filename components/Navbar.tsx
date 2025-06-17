@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { logOutUser } from "@/lib/actions/user.action";
 import FileUploader from "./FileUploader";
 import { NavBarProps } from "@/types";

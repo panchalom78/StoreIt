@@ -13,7 +13,6 @@ import InputFeild from "./InputFeild";
 import Link from "next/link";
 import { createAccount, login } from "@/lib/actions/user.action";
 import OTPModal from "./OTPModal";
-import { email } from "zod/v4-mini";
 
 const AuthForm = ({ type }: { type: AuthType }) => {
     const isSignIn = type === "sign-in";

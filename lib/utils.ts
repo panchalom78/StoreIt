@@ -1,15 +1,13 @@
-import Home from "@/app/(home)/page";
 import { homeFileOptions } from "@/constants";
-import { FileData } from "@/types";
+import { FileInfo } from "@/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { string } from "zod/v4-mini";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export const parseStringify = (value: any) => {
+export const parseStringify = (value: unknown) => {
     return JSON.parse(JSON.stringify(value));
 };
 
@@ -178,7 +176,7 @@ function formatBytes(bytes: number): string {
     return `${bytes.toFixed(2)} ${units[index]}`;
 }
 
-export const getFileDetails = (fileData: { [key: string]: FileData }) => {
+export const getFileDetails = (fileData: { [key: string]: FileInfo }) => {
     return homeFileOptions.map((file) => {
         const fileInfo = fileData[file.name];
 

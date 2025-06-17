@@ -2,6 +2,7 @@ import FileCard from "@/components/FileCard";
 import Sort from "@/components/Sort";
 import { getFiles } from "@/lib/actions/file.action";
 import { formatFileSize, getFileType } from "@/lib/utils";
+import { FileDocument } from "@/types";
 import React from "react";
 
 const page = async ({
@@ -19,7 +20,9 @@ const page = async ({
 
     const getTotalFileSize = () => {
         let totalSize = 0;
-        files.documents.forEach((file: any) => (totalSize += file.size));
+        files.documents.forEach(
+            (file: FileDocument) => (totalSize += file.size)
+        );
         return formatFileSize(totalSize);
     };
 
@@ -40,7 +43,7 @@ const page = async ({
             <div className="flex-1 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-rows-2 gap-6 pt-10">
                 {files.total === 0 && <p>No Uploaded Files</p>}
                 {files.total > 0 &&
-                    files.documents.map((file: any) => (
+                    files.documents.map((file: FileDocument) => (
                         <FileCard {...file} key={file.$id} />
                     ))}
             </div>

@@ -58,7 +58,7 @@ const SearchInput = () => {
         const fileLink =
             file.type === "video" || file.type === "audio"
                 ? `/media?search=${query}`
-                : `/${file.type}?search=${query}`;
+                : `/${file.type}s?search=${query}`;
         router.push(fileLink);
     };
 

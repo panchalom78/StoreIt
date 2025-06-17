@@ -78,7 +78,7 @@ const ActionDropdown = (file: FileDocument) => {
                 const updatedSharedUsers = file.users.filter(
                     (e) => e !== email
                 );
-                const updatedFile = await shareFile({
+                await shareFile({
                     documentId: file.$id,
                     users: updatedSharedUsers,
                     email: "",

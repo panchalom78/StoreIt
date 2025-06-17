@@ -2,7 +2,6 @@ import { OTPModalProps } from "@/types";
 import {
     AlertDialog,
     AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
@@ -13,7 +12,6 @@ import {
 import {
     InputOTP,
     InputOTPGroup,
-    InputOTPSeparator,
     InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { useState } from "react";
@@ -64,7 +62,7 @@ const OTPModal = ({ email, accountId }: OTPModalProps) => {
                         />
                     </AlertDialogTitle>
                     <AlertDialogDescription className="text-center ">
-                        We've send a code to{" "}
+                        We&apos;ve send a code to{" "}
                         <span className="text-primary">{email}</span>
                     </AlertDialogDescription>
                 </AlertDialogHeader>
@@ -99,7 +97,7 @@ const OTPModal = ({ email, accountId }: OTPModalProps) => {
                     </AlertDialogAction>
                 </AlertDialogFooter>
                 <div className="flex justify-center items-center gap-2">
-                    <p>Didn't get a code?</p>
+                    <p>Didn&apos;t get a code?</p>
                     <Button
                         onClick={handleResendOTP}
                         type="button"

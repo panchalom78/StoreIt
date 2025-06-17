@@ -14,7 +14,7 @@ const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
                         Manage your files the best way
                     </h2>
                     <p>
-                        Awesome, we've created the perfect place for you to
+                        Awesome, we&apos;ve created the perfect place for you to
                         store all your documents.
                     </p>
                 </div>

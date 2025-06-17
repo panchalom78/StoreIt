@@ -10,7 +10,6 @@ import { Input } from "./ui/input";
 import { InputFeildProps } from "@/types";
 
 const InputFeild = (props: InputFeildProps) => {
-    const [isFocused, setisFocused] = useState(false);
     return (
         <>
             <FormField

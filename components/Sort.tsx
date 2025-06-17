@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
     Select,
     SelectContent,
@@ -31,7 +31,9 @@ const Sort = () => {
             </SelectTrigger>
             <SelectContent>
                 {sortTypes.map((type) => (
-                    <SelectItem value={type.value}>{type.name}</SelectItem>
+                    <SelectItem value={type.value} key={type.value}>
+                        {type.name}
+                    </SelectItem>
                 ))}
             </SelectContent>
         </Select>

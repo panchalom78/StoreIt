@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Thumbnail from "./Thumbnail";
 import { FileDocument } from "@/types";
 import { formatDateToShort, formatFileSize } from "@/lib/utils";
@@ -82,7 +82,10 @@ export const ShareFile = ({
                     </div>
                     <div className="flex flex-col gap-3">
                         {file.users.map((user) => (
-                            <div className="flex justify-between items-center">
+                            <div
+                                className="flex justify-between items-center"
+                                key={user}
+                            >
                                 <p>{user}</p>
                                 <Image
                                     src="/icons/remove.svg"

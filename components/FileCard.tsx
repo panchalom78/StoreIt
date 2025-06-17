@@ -1,10 +1,8 @@
-import { FileCardPorps, FileData, FileDocument } from "@/types";
-import Image from "next/image";
+import { FileDocument } from "@/types";
 import React from "react";
 import Thumbnail from "./Thumbnail";
 import { formatDateToShort, formatFileSize } from "@/lib/utils";
 import Link from "next/link";
-import { file } from "zod/v4-mini";
 import ActionDropdown from "./ActionDropdown";
 
 const FileCard = (props: FileDocument) => {
