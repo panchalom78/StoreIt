@@ -6,6 +6,8 @@ import { getCurrentUser } from "@/lib/actions/user.action";
 import { redirect } from "next/navigation";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomeLayout({
     children,
 }: Readonly<{
