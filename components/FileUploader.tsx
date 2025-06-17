@@ -40,9 +40,7 @@ const FileUploader = ({
                     (uploadedFile) => {
                         if (uploadedFile) {
                             setFiles((prev) =>
-                                prev.filter((f) => {
-                                    f.name !== file.name;
-                                })
+                                prev.filter((f) => f.name !== file.name)
                             );
                         }
                     }

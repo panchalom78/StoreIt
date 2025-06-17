@@ -9,7 +9,6 @@ export default async function Home() {
     const fetchRecentFiles = await getFiles({ typeArray: [], limit: 10 });
     const storageDetails: { [key: string]: FileInfo } =
         await getStorageDetails();
-    console.log(storageDetails);
     const { usedPercent, remaining } = getStorageNumber(
         storageDetails["total"].size!
     );

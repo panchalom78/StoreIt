@@ -46,13 +46,11 @@ const AuthForm = ({ type }: { type: AuthType }) => {
         try {
             if (isSignIn) {
                 const user = await login(values.email);
-                console.log("ID", user);
                 if (!user.accountId) {
                     setErrorMessage(user.error);
                     return;
                 }
                 setAccountId(user.accountId);
-                console.log(accountId);
             } else {
                 const user = await createAccount({
                     fullName: values.fullName!,
