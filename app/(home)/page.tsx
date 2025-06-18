@@ -15,7 +15,7 @@ export default async function Home() {
     const fileOptions = getFileDetails(storageDetails);
 
     return (
-        <div className="flex gap-3 flex-col lg:flex-row p-4 size-full">
+        <div className="flex gap-3 flex-col lg:flex-row p-4">
             {/* Left Side */}
             <div className="lg:w-1/2 h-full flex flex-col gap-2">
                 <div className="bg-primary rounded-lg lg:flex gap-5  p-6  w-full">
@@ -30,7 +30,7 @@ export default async function Home() {
                     </div>
                 </div>
 
-                <div className="grid xl:grid-cols-2 lg:grid-cols-1 grid-cols-2 gap-6 mt-3">
+                <div className="grid xl:grid-cols-2 lg:grid-cols-1 grid-cols-2 gap-6 mt-3 mb-4">
                     {fileOptions.map((file) => (
                         <FileInfoCard
                             name={file.name}

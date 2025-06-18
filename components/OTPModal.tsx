@@ -48,12 +48,12 @@ const OTPModal = ({ email, accountId }: OTPModalProps) => {
     return (
         <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
             <AlertDialogTrigger>Open</AlertDialogTrigger>
-            <AlertDialogContent className="w-fit py-9 rounded-4xl">
+            <AlertDialogContent className="w-fit py-5 sm:py-9 rounded-4xl px-4 sm:px-5">
                 <AlertDialogHeader className="relative">
                     <AlertDialogTitle className="text-2xl font-bold text-center">
                         Enter OTP
                         <Image
-                            className="absolute top-[-25px] right-[-15px]"
+                            className="absolute sm:top-[-10px] sm:right-0 top-0.5 right-1"
                             src="close-dark.svg"
                             alt="close"
                             height={20}
