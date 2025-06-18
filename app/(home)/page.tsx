@@ -15,7 +15,7 @@ export default async function Home() {
     const fileOptions = getFileDetails(storageDetails);
 
     return (
-        <div className="flex gap-3 flex-col lg:flex-row p-4">
+        <div className="flex gap-3 flex-col lg:flex-row p-4 w-full">
             {/* Left Side */}
             <div className="lg:w-1/2 h-full flex flex-col gap-2">
                 <div className="bg-primary rounded-lg lg:flex gap-5  p-6  w-full">
