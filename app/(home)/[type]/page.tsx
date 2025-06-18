@@ -1,6 +1,7 @@
 import FileCard from "@/components/FileCard";
 import Sort from "@/components/Sort";
 import { getFiles } from "@/lib/actions/file.action";
+import { getCurrentUser } from "@/lib/actions/user.action";
 import { formatFileSize, getFileType } from "@/lib/utils";
 import { FileDocument } from "@/types";
 import React from "react";
@@ -17,12 +18,15 @@ const page = async ({
     const sort = (await searchParams)?.sort || "";
     const fileType = getFileType(type);
     const files = await getFiles({ typeArray: fileType, sort, search });
+    const currentUser = await getCurrentUser();
 
     const getTotalFileSize = () => {
         let totalSize = 0;
-        files.documents.forEach(
-            (file: FileDocument) => (totalSize += file.size)
-        );
+        files.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                totalSize += file.size;
+            }
+        });
         return formatFileSize(totalSize);
     };
 
@@ -44,7 +48,11 @@ const page = async ({
                 {files.total === 0 && <p>No Uploaded Files</p>}
                 {files.total > 0 &&
                     files.documents.map((file: FileDocument) => (
-                        <FileCard {...file} key={file.$id} />
+                        <FileCard
+                            file={file}
+                            userAccountId={currentUser.accountId}
+                            key={file.$id}
+                        />
                     ))}
             </div>
         </div>

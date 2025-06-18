@@ -98,6 +98,7 @@ type FileInfoCardProps = {
     color: string;
     link: string;
     size: number;
+    updatedDate: string;
 };
 
 type FileInfo = {

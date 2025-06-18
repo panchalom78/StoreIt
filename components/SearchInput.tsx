@@ -69,73 +69,72 @@ const SearchInput = () => {
     };
 
     return (
-        <div className="flex-1">
-            <div className="w-full relative">
-                <div className="w-3/4 relative flex items-center">
-                    <div className="flex items-center justify-center absolute left-3">
+        <div className="w-full relative">
+            <div className="sm:w-3/4 w-full  relative flex items-center">
+                <div className="flex items-center justify-center absolute left-3">
+                    <Image
+                        src="/icons/search.svg"
+                        alt="search"
+                        width={20}
+                        height={20}
+                    />
+                </div>
+                <Input
+                    className="w-full py-6 pl-10 rounded-4xl text-xl!"
+                    value={tempQuery}
+                    onChange={(e) => {
+                        setTempQuery(e.target.value);
+                        setShowNoResult(false);
+                    }}
+                    placeholder="Search Files ..."
+                />
+                {tempQuery && (
+                    <div className="flex items-center justify-center absolute right-3">
                         <Image
-                            src="/icons/search.svg"
-                            alt="search"
+                            src="/icons/remove.svg"
+                            alt="clear"
                             width={20}
                             height={20}
+                            onClick={clearQuery}
+                            className="cursor-pointer"
                         />
                     </div>
-                    <Input
-                        className="w-full py-6 pl-10 rounded-4xl text-xl!"
-                        value={tempQuery}
-                        onChange={(e) => {
-                            setTempQuery(e.target.value);
-                            setShowNoResult(false);
-                        }}
-                    />
-                    {tempQuery && (
-                        <div className="flex items-center justify-center absolute right-3">
-                            <Image
-                                src="/icons/remove.svg"
-                                alt="clear"
-                                width={20}
-                                height={20}
-                                onClick={clearQuery}
-                                className="cursor-pointer"
-                            />
-                        </div>
-                    )}
-                </div>
-                {query && results.length === 0 && showNoResult && (
-                    <ul className="w-3/4 absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
-                        <li className="flex items-center justify-center p-5">
-                            No File found
-                        </li>
-                    </ul>
-                )}
-
-                {results.length > 0 && (
-                    <ul className="w-3/4 absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
-                        {results.map((file: FileDocument) => (
-                            <li
-                                key={file.$id}
-                                className="w-full flex gap-2 items-center p-2 hover:bg-black/10 rounded-lg cursor-pointer transition-all"
-                                onClick={() => handleFileClick(file)}
-                            >
-                                <Thumbnail
-                                    type={file.type}
-                                    extension={file.extension}
-                                    url={file.url}
-                                    className="size-15 bg-primary/10"
-                                />
-                                <p className="flex-1 truncate">{file.name}</p>
-                                <p className="truncate text-grey">
-                                    {
-                                        formatDateToShort(
-                                            file.$updatedAt
-                                        ).split(",")[0]
-                                    }
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
                 )}
             </div>
+            {query && results.length === 0 && showNoResult && (
+                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
+                    <li className="flex items-center justify-center p-5">
+                        No File found
+                    </li>
+                </ul>
+            )}
+
+            {query && results.length > 0 && (
+                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
+                    {results.map((file: FileDocument) => (
+                        <li
+                            key={file.$id}
+                            className="w-full flex gap-2 items-center p-2 hover:bg-black/10 rounded-lg cursor-pointer transition-all"
+                            onClick={() => handleFileClick(file)}
+                        >
+                            <Thumbnail
+                                type={file.type}
+                                extension={file.extension}
+                                url={file.url}
+                                className="size-15 bg-primary/10"
+                            />
+                            <p className="flex-1 truncate">{file.name}</p>
+                            <p className="truncate text-grey">
+                                {
+                                    formatDateToShort(file.$updatedAt).split(
+                                        ","
+                                    )[0]
+                                }
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

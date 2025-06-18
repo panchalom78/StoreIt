@@ -276,36 +276,46 @@ export const getStorageDetails = async () => {
     });
 
     if (totalFile.total > 0) {
-        totalFile.documents.forEach(
-            (file: FileDocument) => (total.size += file.size)
-        );
+        totalFile.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                total.size += file.size;
+            }
+        });
     }
 
     if (documnentFile.total > 0) {
-        documnentFile.documents.forEach(
-            (file: FileDocument) => (documents.size += file.size)
-        );
+        documnentFile.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                documents.size += file.size;
+            }
+        });
         documents.updatedDate = documnentFile.documents[0].$updatedAt;
     }
 
     if (imageFile.total > 0) {
         images.updatedDate = imageFile.documents[0].$updatedAt;
-        imageFile.documents.forEach(
-            (file: FileDocument) => (images.size += file.size)
-        );
+        imageFile.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                images.size += file.size;
+            }
+        });
     }
 
     if (mediaFile.total > 0) {
-        mediaFile.documents.forEach(
-            (file: FileDocument) => (media.size += file.size)
-        );
+        mediaFile.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                media.size += file.size;
+            }
+        });
         media.updatedDate = mediaFile.documents[0].$updatedAt;
     }
 
     if (otherFile.total > 0) {
-        otherFile.documents.forEach(
-            (file: FileDocument) => (others.size += file.size)
-        );
+        otherFile.documents.forEach((file: FileDocument) => {
+            if (file.owner.accountId === currentUser.accountId) {
+                others.size += file.size;
+            }
+        });
         others.updatedDate = otherFile.documents[0].$updatedAt;
     }
     return { documents, images, others, media, total };

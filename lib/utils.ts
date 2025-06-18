@@ -183,6 +183,7 @@ export const getFileDetails = (fileData: { [key: string]: FileInfo }) => {
         return {
             ...file,
             size: fileInfo?.size ?? 0, // fallback to 0 if undefined
+            updatedData: fileInfo?.updatedDate,
         };
     });
 };

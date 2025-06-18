@@ -1,11 +1,18 @@
-import { cn, formatFileSize } from "@/lib/utils";
+import { cn, formatDateToShort, formatFileSize } from "@/lib/utils";
 import { FileInfoCardProps } from "@/types";
 import Image from "next/image";
 import React from "react";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 
-const FileInfoCard = ({ name, url, color, link, size }: FileInfoCardProps) => {
+const FileInfoCard = ({
+    name,
+    url,
+    color,
+    link,
+    size,
+    updatedDate,
+}: FileInfoCardProps) => {
     return (
         <Link
             className="bg-white rounded-lg flex flex-col cursor-pointer hover:scale-110 transition-all"
@@ -33,10 +40,10 @@ const FileInfoCard = ({ name, url, color, link, size }: FileInfoCardProps) => {
                 </p>
             </div>
             <div className="flex flex-col w-full p-3 gap-3 text-center">
-                <p className="font-bold">{name}</p>
+                <p className="font-bold capitalize">{name}</p>
                 <Separator />
                 <p className="text-grey">Last Update</p>
-                <p>10:00 , 10Oct</p>
+                <p>{updatedDate ? formatDateToShort(updatedDate) : "--"}</p>
             </div>
         </Link>
     );

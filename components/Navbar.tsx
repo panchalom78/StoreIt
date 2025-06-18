@@ -9,7 +9,9 @@ import SearchInput from "./SearchInput";
 const Navbar = ({ ownerId, accountId }: NavBarProps) => {
     return (
         <nav className="sm:flex hidden items-center justify-between">
-            <SearchInput />
+            <div className="flex-1">
+                <SearchInput />
+            </div>
             <div className="flex gap-2 items-center">
                 <FileUploader
                     ownerId={ownerId}

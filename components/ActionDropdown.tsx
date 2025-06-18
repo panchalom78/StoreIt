@@ -29,7 +29,13 @@ import { usePathname } from "next/navigation";
 import { DeleteFile, FileDetails, ShareFile } from "./ActionDialogContent";
 import { toast } from "sonner";
 
-const ActionDropdown = (file: FileDocument) => {
+const ActionDropdown = ({
+    file,
+    userAccountId,
+}: {
+    file: FileDocument;
+    userAccountId: string;
+}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [action, setAction] = useState<ActionType>(null);
@@ -189,57 +195,68 @@ const ActionDropdown = (file: FileDocument) => {
                 <DropdownMenuContent className="w-56" align="start">
                     <DropdownMenuLabel>{file.name}</DropdownMenuLabel>
                     <DropdownMenuGroup>
-                        {ActionOptions.map((option) => (
-                            <DropdownMenuItem
-                                key={option.name}
-                                onClick={() => {
-                                    setAction(option.name as ActionType);
+                        {ActionOptions.map((option) => {
+                            if (
+                                ["delete", "rename", "share"].includes(
+                                    option.name
+                                ) &&
+                                file.owner.accountId !== userAccountId
+                            ) {
+                                return;
+                            }
 
-                                    if (
-                                        [
-                                            "rename",
-                                            "share",
-                                            "delete",
-                                            "details",
-                                        ].includes(option.name)
-                                    ) {
-                                        setIsModalOpen(true);
-                                    }
-                                }}
-                            >
-                                {option.name === "download" ? (
-                                    <Link
-                                        href={constructDownloadUrl(
-                                            file.bucketFileId
-                                        )}
-                                        className="flex items-center gap-2"
-                                        download={file.name}
-                                    >
-                                        <Image
-                                            src={option.url}
-                                            alt={option.name}
-                                            width={30}
-                                            height={30}
-                                        />
-                                        <p className="capitalize">
-                                            {option.name}
-                                        </p>
-                                    </Link>
-                                ) : (
-                                    <div className="flex items-center gap-2">
-                                        <Image
-                                            src={option.url}
-                                            alt={option.name}
-                                            width={30}
-                                            height={30}
-                                        />
-                                        <p className="capitalize">
-                                            {option.name}
-                                        </p>
-                                    </div>
-                                )}
-                            </DropdownMenuItem>
-                        ))}
+                            return (
+                                <DropdownMenuItem
+                                    key={option.name}
+                                    onClick={() => {
+                                        setAction(option.name as ActionType);
+
+                                        if (
+                                            [
+                                                "rename",
+                                                "share",
+                                                "delete",
+                                                "details",
+                                            ].includes(option.name)
+                                        ) {
+                                            setIsModalOpen(true);
+                                        }
+                                    }}
+                                >
+                                    {option.name === "download" ? (
+                                        <Link
+                                            href={constructDownloadUrl(
+                                                file.bucketFileId
+                                            )}
+                                            className="flex items-center gap-2"
+                                            download={file.name}
+                                        >
+                                            <Image
+                                                src={option.url}
+                                                alt={option.name}
+                                                width={30}
+                                                height={30}
+                                            />
+                                            <p className="capitalize">
+                                                {option.name}
+                                            </p>
+                                        </Link>
+                                    ) : (
+                                        <div className="flex items-center gap-2">
+                                            <Image
+                                                src={option.url}
+                                                alt={option.name}
+                                                width={30}
+                                                height={30}
+                                            />
+                                            <p className="capitalize">
+                                                {option.name}
+                                            </p>
+                                        </div>
+                                    )}
+                                </DropdownMenuItem>
+                            );
+                        })}
                     </DropdownMenuGroup>
                 </DropdownMenuContent>
             </DropdownMenu>
