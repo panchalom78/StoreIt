@@ -15,9 +15,9 @@ export default async function Home() {
     const fileOptions = getFileDetails(storageDetails);
 
     return (
-        <div className="flex gap-3 flex-col lg:flex-row p-4 w-full">
+        <div className="flex gap-3 flex-col lg:flex-row sm:p-4 p-2 w-full">
             {/* Left Side */}
-            <div className="lg:w-1/2 h-full flex flex-col gap-2">
+            <div className="lg:w-1/2 h-full flex flex-col">
                 <div className="bg-primary rounded-lg lg:flex gap-5  p-6  w-full">
                     <div className="flex justify-center items-center gap-5 w-full">
                         <StorageCircle percent={usedPercent} />
