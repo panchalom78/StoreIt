@@ -22,15 +22,15 @@ const SideMenuButton = ({
                     type === "other"
                         ? "lg:rounded-full lg:justify-start lg:pl-8"
                         : "justify-start rounded-4xl pl-10"
-                } bg-white shadow-none hover:bg-white cursor-pointer ${
-                    isActive && "bg-primary hover:bg-primary"
+                } bg-white dark:bg-black dark:text-white shadow-none hover:bg-white cursor-pointer ${
+                    isActive && "bg-primary dark:bg-primary hover:bg-primary"
                 }`}
             >
                 <Image
                     className={`${
                         isActive
                             ? "invert-0 opacity-100"
-                            : "filter invert opacity-25!"
+                            : "filter invert opacity-25! dark:opacity-40! dark:invert-0"
                     }`}
                     src={`/icons/${name}.svg`}
                     alt={name}
@@ -40,7 +40,11 @@ const SideMenuButton = ({
                 <p
                     className={`${
                         type === "other" ? "hidden lg:block" : ""
-                    } capitalize ${isActive ? "text-white" : "text-grey-100 "}`}
+                    } capitalize ${
+                        isActive
+                            ? "text-white"
+                            : "text-grey-100 dark:text-white/70"
+                    }`}
                 >
                     {name}
                 </p>

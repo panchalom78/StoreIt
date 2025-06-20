@@ -20,18 +20,20 @@ export default async function Home() {
     return (
         <div className="flex gap-3 flex-col lg:flex-row sm:p-4 p-2 w-full">
             <div className="lg:w-1/2 h-full flex flex-col">
-                <div className="bg-primary rounded-lg lg:flex gap-5  p-6  w-full">
+                <div className="bg-primary dark:bg-primary/95 rounded-lg lg:flex gap-5  p-6  w-full">
                     <div className="flex justify-center items-center gap-5 w-full">
                         <StorageCircle percent={usedPercent} />
                         <div className="flex flex-col items-center justify-center text-white">
                             <p className="text-xl font-semibold">
                                 Available storage
                             </p>
-                            <p>{remaining} / 2.00 GB</p>
+                            <p className="dark:text-white/80">
+                                {remaining} / 2.00 GB
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div className="w-full block sm:hidden bg-white rounded-4xl mt-3">
+                <div className="w-full block sm:hidden bg-white dark:bg-transparent rounded-4xl mt-3">
                     <SearchInput />
                 </div>
                 <div className="grid xl:grid-cols-2 lg:grid-cols-1 grid-cols-2 gap-6 mt-3 mb-4">
@@ -50,8 +52,8 @@ export default async function Home() {
             </div>
 
             {/* Right Side */}
-            <div className="h-fit flex flex-col gap-2 bg-white lg:w-1/2 p-4 rounded-lg mt-4 lg:mt-0 mb-4">
-                <h1 className="text-lg font-bold mb-3">
+            <div className="h-fit flex flex-col gap-2 bg-white lg:w-1/2 p-4 rounded-lg mt-4 lg:mt-0 mb-4 dark:bg-[#1b2124]">
+                <h1 className="text-lg font-bold mb-3 dark:text-white/90">
                     Recently Uploaded Files
                 </h1>
                 <div className="flex flex-col gap-2">

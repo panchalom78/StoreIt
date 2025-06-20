@@ -67,7 +67,7 @@ const FileUploader = ({
             <input {...getInputProps()} />
             <Button
                 className={cn(
-                    "flex justify-center items-center w-full",
+                    "flex justify-center items-center w-full dark:opacity-95",
                     buttonClassName
                 )}
             >

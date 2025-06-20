@@ -17,7 +17,7 @@ const Navbar = ({ ownerId, accountId }: NavBarProps) => {
                     ownerId={ownerId}
                     accountId={accountId}
                     className=""
-                    buttonClassName=""
+                    buttonClassName=" p-6 rounded-4xl"
                 />
                 <form
                     action={async () => {
@@ -26,15 +26,14 @@ const Navbar = ({ ownerId, accountId }: NavBarProps) => {
                     }}
                 >
                     <Button
-                        variant="outline"
-                        className="shadow-none border-none cursor-pointer"
+                        className="shadow-none border-none cursor-pointer size-13 rounded-full bg-primary/10 hover:bg-primary/10"
                         type="submit"
                     >
                         <Image
                             src="/icons/logout.svg"
                             alt="logout"
-                            height={30}
-                            width={30}
+                            height={200}
+                            width={150}
                         />
                     </Button>
                 </form>

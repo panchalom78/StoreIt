@@ -26,12 +26,16 @@ const Sort = () => {
             defaultValue={sort?.value}
             onValueChange={(value) => handleValueChange(value)}
         >
-            <SelectTrigger className="sm:w-[180px] bg-white w-full">
+            <SelectTrigger className="sm:w-[180px] bg-white w-full dark:bg-[#1c2123] dark:border-0 dark:hover:bg-[#1c2123] dark:text-white/70">
                 <SelectValue placeholder={sort?.name} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="dark:bg-[#1c2123] dark:border-0 dark:text-white/70">
                 {sortTypes.map((type) => (
-                    <SelectItem value={type.value} key={type.value}>
+                    <SelectItem
+                        value={type.value}
+                        key={type.value}
+                        className="dark:hover:bg-white/10"
+                    >
                         {type.name}
                     </SelectItem>
                 ))}

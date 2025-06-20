@@ -33,14 +33,18 @@ const page = async ({
     const totalSize = getTotalFileSize();
 
     return (
-        <div className="flex flex-col p-5 text-grey-100">
-            <h1 className="font-bold text-3xl capitalize">{type}</h1>
+        <div className="flex flex-col p-5 text-grey-100 dark:bg-[#181a1b]">
+            <h1 className="font-bold text-3xl capitalize dark:text-white/90">
+                {type}
+            </h1>
             <div className="flex items-center flex-col sm:flex-row sm:justify-between gap-3">
-                <div className="text-left w-full">
+                <div className="text-left w-full dark:text-white/80">
                     Total: <span className="font-semibold">{totalSize}</span>
                 </div>
                 <div className="flex gap-2 items-center w-full justify-end">
-                    <p className="hidden sm:block">Sort By:</p>
+                    <p className="hidden sm:block dark:text-white/80">
+                        Sort By:
+                    </p>
                     <Sort />
                 </div>
             </div>

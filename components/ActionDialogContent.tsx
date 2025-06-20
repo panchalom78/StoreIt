@@ -12,10 +12,10 @@ const ImageThumbnail = (file: FileDocument) => {
                 type={file.type}
                 extension={file.extension}
                 url={file.url}
-                className="size-13"
+                className="size-13 dark:bg-primary/30"
             />
             <div className="flex flex-col gap-1">
-                <p className="font-bold text-black text-lg truncate ">
+                <p className="font-bold text-black text-lg truncate dark:text-white/80">
                     {file.name}
                 </p>
                 <p>{formatDateToShort(file.$createdAt)}</p>
@@ -35,7 +35,7 @@ export const FileDetails = (file: FileDocument) => {
                     <p>Owner:</p>
                     <p>Last edit:</p>
                 </div>
-                <div className="flex flex-col gap-4 text-black w-2/3 font-semibold text-left">
+                <div className="flex flex-col gap-4 text-black w-2/3 font-semibold text-left dark:text-white/70">
                     <p>{file.extension}</p>
                     <p>{formatFileSize(file.size)}</p>
                     <p>{file.owner.fullName}</p>
@@ -61,12 +61,12 @@ export const ShareFile = ({
         <div className="flex flex-col gap-3">
             <ImageThumbnail {...file} />
             <div className="flex flex-col gap-2">
-                <h1 className="text-lg font-bold text-black">
+                <h1 className="text-lg font-bold text-black dark:text-white/80">
                     Share file with other users:
                 </h1>
                 <Input
                     type="text"
-                    className="rounded-4xl p-5"
+                    className="rounded-4xl p-5 dark:text-white/70 dark:bg-[#121111]"
                     placeholder="Enter email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +75,7 @@ export const ShareFile = ({
             {file.users.length > 0 && (
                 <div className="flex flex-col gap-3">
                     <div className="flex justify-between">
-                        <h1 className="text-black font-bold">
+                        <h1 className="text-black font-bold dark:text-white/80">
                             Shared with users
                         </h1>
                         <p>{file.users.length} users</p>
@@ -93,7 +93,7 @@ export const ShareFile = ({
                                     width={20}
                                     height={20}
                                     onClick={() => removeSharedUser(user)}
-                                    className="cursor-pointer"
+                                    className="cursor-pointer dark:invert"
                                 />
                             </div>
                         ))}
@@ -109,7 +109,7 @@ export const DeleteFile = ({ fileName }: { fileName: string }) => {
         <div>
             <p className="text-center text-lg">
                 Are you sure to delete file{" "}
-                <span className="text-black font-semibold">{fileName}</span> ?
+                <span className="font-semibold text-primary">{fileName}</span> ?
             </p>
         </div>
     );

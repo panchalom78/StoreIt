@@ -105,7 +105,3 @@ type FileInfo = {
     size: number = 0;
     updatedDate: string = "";
 };
-type FileInfo2 = {
-    size: number = 0;
-    updatedDate: string = "";
-};

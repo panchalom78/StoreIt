@@ -77,10 +77,11 @@ const SearchInput = () => {
                         alt="search"
                         width={20}
                         height={20}
+                        className="filter invert"
                     />
                 </div>
                 <Input
-                    className="w-full py-6 pl-10 rounded-4xl text-xl!"
+                    className="w-full py-6 pl-10 rounded-4xl text-xl! dark:border-0 dark:text-white dark:bg-[#121111]"
                     value={tempQuery}
                     onChange={(e) => {
                         setTempQuery(e.target.value);
@@ -96,13 +97,13 @@ const SearchInput = () => {
                             width={20}
                             height={20}
                             onClick={clearQuery}
-                            className="cursor-pointer"
+                            className="cursor-pointer dark:filter dark:invert"
                         />
                     </div>
                 )}
             </div>
             {query && results.length === 0 && showNoResult && (
-                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
+                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50 dark:bg-black dark:border-0 dark:text-white/80">
                     <li className="flex items-center justify-center p-5">
                         No File found
                     </li>
@@ -110,11 +111,11 @@ const SearchInput = () => {
             )}
 
             {query && results.length > 0 && (
-                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50">
+                <ul className="sm:w-3/4 w-full absolute rounded-lg border-1 top-20 bg-white left-0 z-50 dark:bg-black dark:border-0 dark:text-white/80">
                     {results.map((file: FileDocument) => (
                         <li
                             key={file.$id}
-                            className="w-full flex gap-2 items-center p-2 hover:bg-black/10 rounded-lg cursor-pointer transition-all"
+                            className="w-full flex gap-2 items-center p-2 hover:bg-black/10 rounded-lg cursor-pointer transition-all dark:hover:bg-white/10"
                             onClick={() => handleFileClick(file)}
                         >
                             <Thumbnail

@@ -13,6 +13,7 @@ import InputFeild from "./InputFeild";
 import Link from "next/link";
 import { createAccount, login } from "@/lib/actions/user.action";
 import OTPModal from "./OTPModal";
+import SunMoonThemeToggle from "./SumMoonToggle";
 
 const AuthForm = ({ type }: { type: AuthType }) => {
     const isSignIn = type === "sign-in";
@@ -67,7 +68,10 @@ const AuthForm = ({ type }: { type: AuthType }) => {
     }
 
     return (
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center relative">
+            <div className="size-5 absolute top-[-25px] right-2 p-0 bg-black dark:bg-black/80 rounded-lg">
+                <SunMoonThemeToggle />
+            </div>
             <div className="flex flex-col gap-3 xl:px-30 lg:px-10 w-full px-10">
                 <div className="w-full flex justify-center lg:hidden mb-5">
                     <Image
@@ -78,7 +82,7 @@ const AuthForm = ({ type }: { type: AuthType }) => {
                         className="w-1/2"
                     />
                 </div>
-                <h1 className="text-3xl font-bold text-center lg:text-start">
+                <h1 className="text-3xl font-bold text-center lg:text-start mb-10 lg:mb-0">
                     {isSignIn ? "Login" : "Create Account"}
                 </h1>
 
@@ -107,7 +111,7 @@ const AuthForm = ({ type }: { type: AuthType }) => {
                         <Button
                             disabled={isLoading}
                             type="submit"
-                            className="w-full bg-primary rounded-4xl py-7 text-xl"
+                            className="w-full bg-primary rounded-4xl py-7 text-xl dark:text-white/80"
                         >
                             {isSignIn ? "Login" : "Create Account"}
                             {isLoading && (

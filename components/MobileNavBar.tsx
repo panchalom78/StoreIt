@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetDescription,
     SheetTitle,
@@ -16,6 +17,8 @@ import { Button } from "./ui/button";
 import { logOutUser } from "@/lib/actions/user.action";
 import FileUploader from "./FileUploader";
 import { MobileNavProps } from "@/types";
+import DarkModeToggle from "./DarkModeToggle";
+import { X } from "lucide-react";
 
 const MobileNavBar = ({
     fullName,
@@ -42,9 +45,10 @@ const MobileNavBar = ({
                         alt="menu"
                         width={20}
                         height={20}
+                        className="dark:invert"
                     />
                 </SheetTrigger>
-                <SheetContent className="h-screen px-3 py-3 flex flex-col ">
+                <SheetContent className="h-screen px-3 py-3 flex flex-col dark:bg-black border-0">
                     <SheetTitle>
                         <div className="flex gap-2 p-3">
                             <Image
@@ -55,11 +59,14 @@ const MobileNavBar = ({
                                 className="rounded-full border-2"
                             />
                             <div className="flex flex-col">
-                                <h1 className="text-l">{fullName}</h1>
+                                <h1 className="text-l dark:text-white/80">
+                                    {fullName}
+                                </h1>
                                 <p className="text-grey text-sm">{email}</p>
                             </div>
                         </div>
                     </SheetTitle>
+
                     <SheetDescription className="flex-1 flex flex-col">
                         <div className="flex-1">
                             {menuItems.map(({ url, name }, index) => (
@@ -72,6 +79,7 @@ const MobileNavBar = ({
                                 />
                             ))}
                         </div>
+
                         <FileUploader
                             ownerId={ownerId}
                             accountId={accountId}
@@ -79,6 +87,9 @@ const MobileNavBar = ({
                             buttonClassName="gap-2 w-full bg-primary text-white!  py-7 rounded-4xl cursor-pointer text-xl"
                         />
 
+                        <div className="flex justify-center items-center gap-2 w-full bg-[#fa72742c] hover:bg-[#fa727443] py-4 rounded-4xl cursor-pointer mt-3">
+                            <DarkModeToggle />
+                        </div>
                         <Button
                             className="flex justify-center items-center gap-2 w-full bg-[#fa72742c] hover:bg-[#fa727443] py-7 rounded-4xl cursor-pointer mt-3"
                             onClick={async () => await logOutUser()}

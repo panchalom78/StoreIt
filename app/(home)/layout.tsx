@@ -17,7 +17,7 @@ export default async function HomeLayout({
     if (!user) return redirect("/sign-in");
 
     return (
-        <div className="bg-white p-0 flex  h-screen sm:p-5">
+        <div className="bg-white dark:bg-black p-0 flex  h-screen sm:p-5">
             <SideMenu {...user} />
             <div className="flex-1 h-full flex flex-col">
                 <Navbar
@@ -27,7 +27,7 @@ export default async function HomeLayout({
                     buttonClassName=""
                 />
                 <MobileNavBar {...user} />
-                <div className="flex-1 bg-white-100 sm:mt-5 sm:rounded-lg overflow-auto">
+                <div className="flex-1 bg-white-100 sm:dark:bg-[#181a1b] dark:bg-black sm:mt-5 sm:rounded-lg overflow-auto">
                     {children}
                 </div>
             </div>

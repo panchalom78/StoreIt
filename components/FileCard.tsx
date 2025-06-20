@@ -16,14 +16,14 @@ const FileCard = ({
         <Link
             href={file.url}
             target="_blank"
-            className="flex flex-col gap-2 p-4 bg-white rounded-lg "
+            className="flex flex-col gap-2 p-4 bg-white rounded-lg dark:bg-black"
         >
             <div className="flex justify-between">
                 <Thumbnail
                     type={file.type}
                     extension={file.extension}
                     url={file.type === "image" ? file.url : ""}
-                    className="size-20 bg-primary/10"
+                    className="size-20 bg-primary/10 dark:bg-primary/20"
                 />
                 <div className="flex flex-col justify-between items-end">
                     <ActionDropdown file={file} userAccountId={userAccountId} />
@@ -32,7 +32,9 @@ const FileCard = ({
             </div>
             <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-1">
-                    <p className="line-clamp-1 font-semibold">{file.name}</p>
+                    <p className="line-clamp-1 font-semibold dark:text-white/80">
+                        {file.name}
+                    </p>
                     {file.owner.accountId !== userAccountId && (
                         <div
                             className="h-fit w-fit rounded-4xl text-[10px] px-1 py-0.5 text-white  bg-primary"
@@ -42,7 +44,9 @@ const FileCard = ({
                         </div>
                     )}
                 </div>
-                <p>{formatDateToShort(file.$createdAt)}</p>
+                <p className="dark:text-white/60">
+                    {formatDateToShort(file.$createdAt)}
+                </p>
                 <p className="text-grey">By: {file.owner.fullName}</p>
             </div>
         </Link>

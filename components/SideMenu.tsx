@@ -9,6 +9,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import DarkModeToggle from "./DarkModeToggle";
 
 const SideMenu = ({
     fullName,
@@ -49,7 +50,7 @@ const SideMenu = ({
                     />
                 ))}
             </div>
-            <div className="w-full xl:flex justify-center hidden mb-2">
+            {/* <div className="w-full xl:flex justify-center hidden mb-2">
                 <Image
                     src="/file-2.svg"
                     alt="file"
@@ -57,10 +58,15 @@ const SideMenu = ({
                     height={100}
                     className="w-4/5"
                 />
+            </div> */}
+            <div className="flex gap-2 items-center justify-center lg:p-4 p-2 bg-primary/10 lg:rounded-4xl rounded-lg w-full  mb-4">
+                <div className=" sm:flex hidden flex-col lg:flex-row gap-3 items-center">
+                    <DarkModeToggle />
+                </div>
             </div>
             <Popover>
                 <PopoverTrigger>
-                    <div className="gap-2 items-center hidden sm:flex bg-primary/10 p-2 lg:rounded-4xl rounded-lg w-full lg:justify-start justify-center cursor-pointer">
+                    <div className="gap-2 items-center hidden sm:flex bg-primary/10 p-2 lg:rounded-4xl rounded-lg w-full! lg:justify-start justify-center cursor-pointer">
                         <Image
                             src={avatar}
                             alt="user"
@@ -69,7 +75,7 @@ const SideMenu = ({
                             className="rounded-[50%] border-2"
                         />
                         <div className=" flex-col text-left truncate hidden lg:flex">
-                            <h1 className="font-bold text-sm hidden lg:block">
+                            <h1 className="font-bold text-sm hidden lg:block dark:text-white/70">
                                 {fullName}
                             </h1>
                             <p className="text-grey text-[13px] hidden xl:block">
@@ -78,14 +84,14 @@ const SideMenu = ({
                         </div>
                     </div>
                 </PopoverTrigger>
-                <PopoverContent className="min-w-[350px]! ml-3">
+                <PopoverContent className="min-w-[350px]! ml-3 dark:bg-black">
                     <div className="flex gap-3 w-full">
                         <div className="flex flex-col gap-3 w-1/3 text-grey">
                             <p>Username:</p>
                             <p>Email:</p>
                             <p>Total storage:</p>
                         </div>
-                        <div className="flex flex-col gap-3 w-2/3 text-left text-black">
+                        <div className="flex flex-col gap-3 w-2/3 text-left text-black dark:text-white/80">
                             <p>{fullName}</p>
                             <p>{email}</p>
                             <p>10 GB/ 20GB</p>

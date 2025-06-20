@@ -119,9 +119,9 @@ const ActionDropdown = ({
         };
 
         return (
-            <DialogContent className="flex flex-col gap-4 rounded-4xl max-w-[400px]!">
+            <DialogContent className="flex flex-col gap-4 rounded-4xl max-w-[400px]! dark:bg-black dark:border-0">
                 <DialogHeader>
-                    <DialogTitle className="capitalize text-center mb-3">
+                    <DialogTitle className="capitalize text-center mb-3 dark:text-white/80">
                         {action}
                     </DialogTitle>
                     <DialogDescription>
@@ -129,7 +129,7 @@ const ActionDropdown = ({
                             <Input
                                 type="text"
                                 value={fileName}
-                                className="rounded-4xl"
+                                className="rounded-4xl dark:border-0 dark:text-white/70 dark:bg-[#121111]"
                                 onChange={(e) => setFileName(e.target.value)}
                             />
                         )}
@@ -150,7 +150,7 @@ const ActionDropdown = ({
                 {["rename", "delete", "share"].includes(action) && (
                     <DialogFooter className="flex flex-col gap-2 md:flex-row w-full!">
                         <Button
-                            className="rounded-4xl bg-white hover:bg-white text-black cursor-pointer flex-1 py-6"
+                            className="rounded-4xl bg-white dark:bg-black dark:text-white/80 hover:bg-white text-black cursor-pointer flex-1 py-6"
                             onClick={closeAllModals}
                         >
                             Cancel
@@ -183,7 +183,10 @@ const ActionDropdown = ({
                 onOpenChange={setIsDropdownOpen}
             >
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="border-none p-0">
+                    <Button
+                        variant="outline"
+                        className="border-none p-0 bg-transparent!"
+                    >
                         <Image
                             src="/icons/dots.svg"
                             alt="options"
@@ -192,8 +195,13 @@ const ActionDropdown = ({
                         />
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="start">
-                    <DropdownMenuLabel>{file.name}</DropdownMenuLabel>
+                <DropdownMenuContent
+                    className="w-56 dark:bg-black dark:border-0"
+                    align="start"
+                >
+                    <DropdownMenuLabel className="dark:text-white">
+                        {file.name}
+                    </DropdownMenuLabel>
                     <DropdownMenuGroup>
                         {ActionOptions.map((option) => {
                             if (
@@ -207,6 +215,7 @@ const ActionDropdown = ({
 
                             return (
                                 <DropdownMenuItem
+                                    className="dark:hover:bg-white/10 dark:text-white "
                                     key={option.name}
                                     onClick={() => {
                                         setAction(option.name as ActionType);
