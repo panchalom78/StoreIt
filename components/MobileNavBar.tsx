@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useState } from "react";
 import {
     Sheet,
-    SheetClose,
     SheetContent,
     SheetDescription,
     SheetTitle,
@@ -18,7 +17,6 @@ import { logOutUser } from "@/lib/actions/user.action";
 import FileUploader from "./FileUploader";
 import { MobileNavProps } from "@/types";
 import DarkModeToggle from "./DarkModeToggle";
-import { X } from "lucide-react";
 
 const MobileNavBar = ({
     fullName,
