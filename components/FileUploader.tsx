@@ -76,18 +76,19 @@ const FileUploader = ({
                     alt="upload"
                     width={20}
                     height={20}
+                    className="dark:invert"
                 />
                 Upload
             </Button>
             {files.length > 0 && (
-                <ul className="fixed bottom-10 right-10 p-3 max-w-[480px] h-fit rounded-lg shadow-sm size-full bg-white z-50 flex flex-col">
+                <ul className="fixed sm:bottom-10 sm:right-10 w-5/6 bottom-0 right-0 p-3 max-w-[480px] h-fit rounded-lg shadow-sm size-full bg-white z-50 flex flex-col dark:bg-black">
                     <h4 className="font-bold text-lg">Uploading</h4>
                     {files.map((file, index) => {
                         const { extension, category } =
                             getFileCategoryAndExtension(file.name);
                         return (
                             <li
-                                className="w-full shadow-sm bg-white p-3 mt-3 mb-3 rounded-lg"
+                                className="w-full shadow-sm bg-white p-3 mt-3 mb-3 rounded-lg dark:bg-[#1b2124]"
                                 key={file.name + "-" + index}
                             >
                                 <div className="flex items-center gap-2">
@@ -109,6 +110,7 @@ const FileUploader = ({
                                     <div className="flex items-center justify-center">
                                         <Image
                                             src="/icons/remove.svg"
+                                            className="dark:filter dark:invert"
                                             alt="remove"
                                             width={25}
                                             height={25}

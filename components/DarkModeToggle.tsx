@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { Switch } from "./ui/switch";
 
 const DarkModeToggle = () => {
-    const [isDark, setIsDark] = useState<boolean>(
-        localStorage.getItem("theme") === "dark"
-    );
+    const [isDark, setIsDark] = useState<boolean>(false);
 
     // 👀 Load theme from localStorage on mount
     useEffect(() => {
