@@ -69,7 +69,7 @@ const AuthForm = ({ type }: { type: AuthType }) => {
 
     return (
         <div className="w-full h-full flex justify-center items-center relative">
-            <div className="size-5 absolute top-[-25px] right-2 p-0 bg-black dark:bg-black/80 rounded-lg">
+            <div className="size-5 absolute top-[-20px] right-4 p-0 bg-black dark:bg-black/80 rounded-lg">
                 <SunMoonThemeToggle />
             </div>
             <div className="flex flex-col gap-3 xl:px-30 lg:px-10 w-full px-10">

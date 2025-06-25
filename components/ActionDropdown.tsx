@@ -150,13 +150,13 @@ const ActionDropdown = ({
                 {["rename", "delete", "share"].includes(action) && (
                     <DialogFooter className="flex flex-col gap-2 md:flex-row w-full!">
                         <Button
-                            className="rounded-4xl bg-white dark:bg-black dark:text-white/80 hover:bg-white text-black cursor-pointer flex-1 py-6"
+                            className="rounded-4xl bg-white dark:bg-black dark:text-white/80 hover:bg-white text-black cursor-pointer flex-1 sm:py-6 py-3 "
                             onClick={closeAllModals}
                         >
                             Cancel
                         </Button>
                         <Button
-                            className="capitalize rounded-4xl flex gap-2 flex-1 py-6"
+                            className="capitalize rounded-4xl flex gap-2 flex-1 sm:py-6 py-3"
                             disabled={isLoading}
                             onClick={handleAction}
                         >
