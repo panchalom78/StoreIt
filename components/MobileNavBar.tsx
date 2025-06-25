@@ -17,13 +17,7 @@ import { logOutUser } from "@/lib/actions/user.action";
 import { MobileNavProps } from "@/types";
 import DarkModeToggle from "./DarkModeToggle";
 
-const MobileNavBar = ({
-    fullName,
-    email,
-    avatar,
-    $id: ownerId,
-    accountId,
-}: MobileNavProps) => {
+const MobileNavBar = ({ fullName, email, avatar }: MobileNavProps) => {
     const [open, setOpen] = useState(false);
     const pathname = usePathname();
 
