@@ -1,3 +1,4 @@
+import FileUploader from "@/components/FileUploader";
 import MobileNavBar from "@/components/MobileNavBar";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
@@ -27,7 +28,13 @@ export default async function HomeLayout({
                     buttonClassName=""
                 />
                 <MobileNavBar {...user} />
-                <div className="flex-1 bg-white-100 sm:dark:bg-[#181a1b] dark:bg-black sm:mt-5 sm:rounded-lg overflow-auto">
+                <div className="flex-1 bg-white-100 sm:dark:bg-[#181a1b] dark:bg-black sm:mt-5 sm:rounded-lg overflow-auto relative">
+                    <FileUploader
+                        ownerId={user.$id}
+                        accountId={user.accountId}
+                        className="flex sm:hidden items-center justify-center w-fit bottom-2 right-2 fixed z-50 "
+                        buttonClassName="gap-1 w-full bg-primary py-7 rounded-4xl cursor-pointer text-l"
+                    />
                     {children}
                 </div>
             </div>

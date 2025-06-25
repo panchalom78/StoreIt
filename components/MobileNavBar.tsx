@@ -78,12 +78,12 @@ const MobileNavBar = ({
                             ))}
                         </div>
 
-                        <FileUploader
+                        {/* <FileUploader
                             ownerId={ownerId}
                             accountId={accountId}
                             className="flex items-center justify-center w-full"
                             buttonClassName="gap-2 w-full bg-primary text-white!  py-7 rounded-4xl cursor-pointer text-xl"
-                        />
+                        /> */}
 
                         <div className="flex justify-center items-center gap-2 w-full bg-[#fa72742c] hover:bg-[#fa727443] py-4 rounded-4xl cursor-pointer mt-3">
                             <DarkModeToggle />
