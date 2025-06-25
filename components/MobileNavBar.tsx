@@ -14,7 +14,6 @@ import { menuItems } from "@/constants";
 import SideMenuButton from "./SideMenuButton";
 import { Button } from "./ui/button";
 import { logOutUser } from "@/lib/actions/user.action";
-import FileUploader from "./FileUploader";
 import { MobileNavProps } from "@/types";
 import DarkModeToggle from "./DarkModeToggle";
 
