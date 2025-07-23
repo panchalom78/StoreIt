@@ -89,7 +89,6 @@ const SideMenu = ({
                         <div className="flex flex-col gap-3 w-1/3 text-grey">
                             <p>Username:</p>
                             <p>Email:</p>
-                            <p>Total storage:</p>
                         </div>
                         <div className="flex flex-col gap-3 w-2/3 text-left text-black dark:text-white/80">
                             <p>{fullName}</p>
