@@ -94,7 +94,6 @@ const SideMenu = ({
                         <div className="flex flex-col gap-3 w-2/3 text-left text-black dark:text-white/80">
                             <p>{fullName}</p>
                             <p>{email}</p>
-                            <p>10 GB/ 20GB</p>
                         </div>
                     </div>
                 </PopoverContent>
